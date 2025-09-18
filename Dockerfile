@@ -6,6 +6,8 @@ WORKDIR /app
 
 COPY . /app
 
-RUN uv pip install . --no-cache-dir --system
+RUN uv pip install .[dev] --no-cache-dir --system
 
-CMD ["uv", "run", "python", "-m", "demo.main"]
+EXPOSE 80
+
+CMD ["uv", "run", "python", "main.py"]
